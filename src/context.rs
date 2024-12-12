@@ -24,7 +24,7 @@ pub struct Context<'a> {
     pub diff_b_result_text: Vec<Line<'a>>,
 }
 
-impl<'a> Context<'a> {
+impl Context<'_> {
     pub fn new() -> Self {
         Context {
             state: State::Edit,

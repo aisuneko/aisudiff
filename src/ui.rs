@@ -47,11 +47,10 @@ pub fn render(frame: &mut Frame, ctx: &mut Context) {
                 FocusMode::B => Style::default().fg(Color::Blue),
             }),
     );
-    let mut status_bar_message = String::from("aisudiff alpha - ");
-    status_bar_message.push_str(match ctx.state {
-        State::Edit => "Press Ctrl-s to see diff, Esc to quit",
-        State::ShowDiff => "Press Esc to return to editor",
-    });
+    let status_bar_message = match ctx.state {
+        State::Edit => "aisudiff alpha - Press Ctrl-s to see diff, Esc to quit",
+        State::ShowDiff => "aisudiff alpha - Press Esc to return to editor",
+    };
     let status_bar = Paragraph::new(status_bar_message);
     frame.render_widget(status_bar, status_area);
     if ctx.state == State::Edit {
